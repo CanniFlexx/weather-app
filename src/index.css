@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  /* background-img: "public/bg-img/cloud-background-pastel-paper-cut-design-vector_53876-135919.avif"; */
+  background-image: url('public/bg-img/pexels-pixabay-209831.jpg');
+
+}
