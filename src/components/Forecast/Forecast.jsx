@@ -24,7 +24,7 @@ const Forecast = ({ city }) => {
   }, [city]);
 
   return (
-    <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(66, 66, 66, 0.5)', color: '#fffff', padding: 1 }}>
+    <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(66, 66, 66, 0.5)', color: '#ffffff', padding: 1 }}>
       <CardContent>
         <Typography variant="h6" gutterBottom>5 Days Forecast:</Typography>
         {forecastData.map((day, index) => (

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid, Button } from '@mui/material';
 
-const CurrentWeather = ({ data }) => {
+const CurrentWeather = ({ data, addFavorite }) => {
   return (
-    <Card sx={{ maxWidth: 345,backgroundColor: 'rgba(66, 66, 66, 0.5)', color: '#fffff' }}>
+    <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(66, 66, 66, 0.5)', color: '#fffff' }}>
       <Grid container alignItems="center">
         <Grid item>
           <CardMedia
@@ -42,6 +42,11 @@ const CurrentWeather = ({ data }) => {
                 <span>{data.main.pressure} hPa</span>
               </div>
             </div>
+            <Button 
+              onClick={() => addFavorite(data.city)} 
+            >
+              Add to Favorites
+            </Button>
           </CardContent>
         </Grid>
       </Grid>
@@ -50,4 +55,3 @@ const CurrentWeather = ({ data }) => {
 };
 
 export default CurrentWeather;
-

@@ -1,60 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
 
-const FavoriteCities = ({ onCitySelect }) => {
-  const [favorites, setFavorites] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const savedFavorites = JSON.parse(localStorage.getItem('favoriteCities')) || [];
-    setFavorites(savedFavorites);
-  }, []);
-
-  const addFavorite = (city) => {
-    if (city && !favorites.includes(city)) {
-      const newFavorites = [...favorites, city];
-      setFavorites(newFavorites);
-      localStorage.setItem('favoriteCities', JSON.stringify(newFavorites));
-    }
-  };
-
-  const removeFavorite = (favoriteCity) => {
-    const newFavorites = favorites.filter(c => c !== favoriteCity);
-    setFavorites(newFavorites);
-    localStorage.setItem('favoriteCities', JSON.stringify(newFavorites));
-  };
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
+const FavoriteCitiesAccordion = ({ favorites, removeFavorite }) => {
   return (
-    <div className="w-full">
-      <button onClick={toggleAccordion} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-        Favorite Cities
-      </button>
-      {isOpen && (
-        <div className="mt-2">
-          {favorites.map(favoriteCity => (
-            <div key={favoriteCity} className="p-2 border rounded my-2">
-              <span>{favoriteCity}</span>
-              <button 
-                onClick={() => onCitySelect(favoriteCity)} 
-                className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-              >
-                Show Weather
-              </button>
-              <button 
-                onClick={() => removeFavorite(favoriteCity)} 
-                className="ml-2 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
-              >
+    <div className="flex justify-center items-center">
+      <Accordion sx={{ maxWidth: 450, width: '100%' }}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography>Favorite Cities</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {favorites.map((city) => (
+            <div className="flex justify-between items-center py-2" key={city}>
+              <span>{city}</span>
+              <Button variant="contained" color="secondary" onClick={() => removeFavorite(city)}>
                 Remove
-              </button>
+              </Button>
             </div>
           ))}
-        </div>
-      )}
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 };
 
-export default FavoriteCities;
+export default FavoriteCitiesAccordion;

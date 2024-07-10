@@ -12,7 +12,6 @@ const Search = ({ onSearchChange }) => {
 
   const loadOptions = async (inputValue) => {
     try {
-      // Construct the URL for city search
       const url = `${GEO_API_URL}?namePrefix=${encodeURIComponent(inputValue)}`;
       console.log(`Fetching data from: ${url}`);
 
@@ -27,7 +26,6 @@ const Search = ({ onSearchChange }) => {
       const result = await response.json();
       console.log('API Response:', result);
 
-      // Process result to get the options in the format required by AsyncPaginate
       const options = result.data.map(item => ({
         label: `${item.name}, ${item.country}`,
         value: `${item.latitude} ${item.longitude}`,

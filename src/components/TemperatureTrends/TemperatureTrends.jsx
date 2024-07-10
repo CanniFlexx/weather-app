@@ -6,7 +6,6 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const TemperatureTrends = ({ forecastData }) => {
-  // Prepare data to show each day only once on the x-axis
   const dailyData = {};
   
   forecastData.forEach((day) => {
