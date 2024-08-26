@@ -4,7 +4,6 @@
 
 "How'sTheWeather?" is a weather dashboard application built using Vite, React.js, Tailwind CSS, Material-UI, Chart.js, Auth0, GeoDB Cities API and OpenWeatherMap API. It provides real-time weather information and forecasts for different cities, along with features for user authentication and saving favorite cities.
 
-It was created as an assignment for the Frontend Deverloper Intern position at Smart Decision Advisory services. All the required features have been implemented. Also optional features of User authentication, saving favorite cities and Weather Alerts have been implemented. (The weather alerts functionality is however not functional due to subscription requirements from API provider).
 
 Other modifications and changes include:
 1. Fetching of 5-day forecast instead of 7-days as that was all provided by the API under its free plan.
